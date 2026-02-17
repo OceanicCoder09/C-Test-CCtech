@@ -26,7 +26,7 @@ public:
         return new Line(x, y, z, w);
     }
 };
-
+//inheritance and polymorphism
 class Circle : public CADobj{
     int x, y, r;
 public:
@@ -42,7 +42,7 @@ public:
         return new Circle(x, y, r);
     }
 };
-
+//inheritance and polymorphism
 class Text : public CADobj{
     int x, y;
     string str;
@@ -62,6 +62,7 @@ public:
 
 class Documents{
 public:
+//implememt stl
     vector<CADobj*> objects;
 
     void add(CADobj* obj){
@@ -85,12 +86,12 @@ public:
             return;
         }
 
-        for(int i = 0; i < objects.size(); i++){
+        for(int i = 0; i <objects.size(); i++){
             objects[i]->display();
         }
     }
    void Exit(){
-        for(int i = 0; i < objects.size(); i++){
+        for(int i = 0; i <objects.size(); i++){
             delete objects[i];
         }
         objects.clear();
@@ -113,33 +114,34 @@ int main(){
         
         cout<<"Choice: ";
         cin>>c;
-        if(c == 1){
+        //take a input and compare with doc
+        if(c==1){
             int x1, y1, x2, y2;
             cin>>x1>>y1>>x2>>y2;
             doc.add(new Line(x1,y1,x2,y2));
         }
-        else if(c == 2){
+        else if(c==2){
             int x, y, r;
             cin>>x>>y>>r;
             doc.add(new Circle(x,y,r));
         }
-        else if(c == 3){
+        else if(c==3){
             int x, y;
             string s;
             cin>>x>>y>>s;
             
             doc.add(new Text(x,y,s));
         }
-        else if(c == 4){
+        else if(c==4){
             doc.cloneObj();
         }
-        else if(c == 5){
+        else if(c==5){
             doc.deleteObj();
         }
-        else if(c == 6){
+        else if(c==6){
             doc.ListAll();
         }
-        else if(c == 7){
+        else if(c==7){
             doc.Exit();
             break;
         }
