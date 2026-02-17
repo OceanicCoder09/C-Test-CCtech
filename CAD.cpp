@@ -75,6 +75,7 @@ public:
         }
     }
     void cloneObj(){
+        //cloning by adding a new object as a last object in the vector
         if(objects.size() > 0){
             CADobj* cloned = objects[objects.size() - 1]->clone();
             objects.push_back(cloned);
